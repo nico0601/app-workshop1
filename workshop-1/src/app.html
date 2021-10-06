@@ -1,3 +1,15 @@
 <template>
-  <h1>${message}</h1>
+  <form submit.delegate="getSearch()">
+    <input type="text" value.bind="mysearch">
+    <button>Test</button>
+  </form>
+
+  <p id="ergebnisse">Suchergebnisse: ${aktuell}/${ergebnisse}</p>
+
+  <div id="container">
+    <div virtual-repeat.for="item of url" infinite-scroll-next.call="getMore($scrollContext)">
+      <iframe src="${item.embed_url}"></iframe>
+    </div>
+  </div>
+
 </template>

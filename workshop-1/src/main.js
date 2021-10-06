@@ -6,6 +6,11 @@ export function configure(aurelia) {
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'));
 
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin(PLATFORM.moduleName('aurelia-ui-virtualization'));
+
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
   if (environment.testing) {
