@@ -1,9 +1,9 @@
 import {HttpClient} from 'aurelia-http-client';
 import {style} from './style.css'
+
 let httpClient = new HttpClient();
 
 export class App {
-
 
   constructor() {
     this.search = ""
@@ -18,7 +18,7 @@ export class App {
 
     let key = 'Lkw14CuJxWUgkfptzBvJkPEJIlBKxJN6'
 
-    httpClient.get('https://api.giphy.com/v1/gifs/search?api_key='+key+'&q='+this.search+'&limit=50&offset=&rating=g&lang=en')
+    httpClient.get('https://api.giphy.com/v1/gifs/search?api_key=' + key + '&q=' + this.search + '&limit=50&offset=&rating=g&lang=en')
       .then(data => {
         this.data = JSON.parse(data.response).data
         this.ergebnisse = this.data.length
@@ -32,10 +32,10 @@ export class App {
       });
   }
 
-  getMore(scrollContext){
+  getMore(scrollContext) {
     let length = this.url.length
-    if (this.data.length-length >= 10) {
-      for (let i = length; i < length+10; i++) {
+    if (this.data.length - length >= 10) {
+      for (let i = length; i < length + 10; i++) {
         this.url.push(this.data[i])
       }
       this.url = [...this.url]

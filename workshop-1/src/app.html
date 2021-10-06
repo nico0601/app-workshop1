@@ -1,7 +1,7 @@
 <template>
   <form submit.delegate="getSearch()">
     <input type="text" value.bind="mysearch">
-    <button>Test</button>
+    <button>Send</button>
   </form>
 
   <p id="ergebnisse">Suchergebnisse: ${aktuell}/${ergebnisse}</p>
@@ -11,5 +11,4 @@
       <iframe src="${item.embed_url}"></iframe>
     </div>
   </div>
-
 </template>
